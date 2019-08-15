@@ -1,0 +1,25 @@
+{% extends "base01.html" %}
+
+
+{% block title %}{{ user.username }} | {{ block.super }}{% endblock title %}
+
+
+{% block content %}
+<div class= "profile">
+    {% if user.profile.avatar %}
+    <img src="{{ user.profile.avatar.url }}" alt="my pics" width="240">
+    {% endif %}
+    <p>Full name: {{ user.get_full_name }}</p>
+    <p>Username: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+
+    <p>Gender: {{ user.profile.gender }}</p>
+
+    <p>Tagline: {{ user.profile.tagline }}</p>
+    <p>Description: {{ user.profile.description }}</p>
+
+    <p>Birthday: {{ user.profile.dob }}</p>
+</div>
+
+{% endblock content %}
+

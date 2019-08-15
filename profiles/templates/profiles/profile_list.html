@@ -1,0 +1,16 @@
+{% extends 'base01.html' %}
+
+{% block title %} List Users {% endblock title %}
+
+{% block content %}
+{% for usr in profile_list %}
+    <a href='{% url "profiles:detail" usr.user.id %}'>{{ usr.user |linebreaks}}</a>
+    {% if usr.user.profile.avatar %}
+    <img src="{{ usr.user.profile.avatar.url }}" alt="my pics" width="240">
+    {% endif %}
+
+{#    {{ usr.user |linebreaks}}#}
+
+{% endfor %}
+
+{% endblock content %}

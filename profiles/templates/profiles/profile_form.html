@@ -1,0 +1,14 @@
+{% extends 'base01.html' %}
+{% load crispy_forms_tags %}
+{% block title %} List Users {% endblock title %}
+
+{% block content %}
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p|cryspy }}
+  <button type="submit">Save changes</button>
+
+</form>
+
+{% endblock %}
