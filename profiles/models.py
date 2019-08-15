@@ -1,14 +1,15 @@
+import logging
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models.signals import post_save
 
-
 def user_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    logger.info("Logger Trigger User Directory Path")
     return 'profile_image/user_{0}/{1}'.format(instance.user.id, filename)
 
-
+logger = logging.getLogger("info_logger")
 User = settings.AUTH_USER_MODEL
 
 
@@ -37,6 +38,7 @@ class Profile(models.Model):
 def post_save_user_receiver(sender, instance, created, *args, **kwargs):
     if created:
         profile, is_created = Profile.objects.get_or_create(user=instance)
+        logger.info("Logger Trigger Post Save User Receiver")
+
 
 post_save.connect(post_save_user_receiver, sender=User)
-

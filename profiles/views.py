@@ -47,17 +47,15 @@ def update_profile(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            logger.info("Profile Successfully Updated:{}".format(request.user))
             return HttpResponseRedirect('/profile/')
 
     else:
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
+        logger.info("Profile Successfully Loaded:{}".format(request.user))
     return render(request, 'profiles/update.html', {
         'user_form': user_form,
         'profile_form': profile_form
     })
-
-
-
-
 

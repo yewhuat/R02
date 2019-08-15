@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.views.generic.base import TemplateView
 
 urlpatterns = [
-    url('admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^profile/', include('profiles.urls', namespace='profiles')),
     url(r'', TemplateView.as_view(template_name='home.html'), name='home'),
