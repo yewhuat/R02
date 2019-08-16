@@ -38,7 +38,7 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
 #     fields = ['dob', 'gender']
 
 
-@login_required
+@login_required(login_url='/accounts/login/')
 def update_profile(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)

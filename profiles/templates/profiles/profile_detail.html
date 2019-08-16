@@ -7,7 +7,7 @@
 {% block content %}
 <div class= "profile">
     {% if user.profile.avatar %}
-    <img src="{{ user.profile.avatar.url }}" alt="my pics" width="240">
+    <img src="{{ user.profile.avatar.url }}" alt="my pics" height="80" width="80">
     {% endif %}
     <p>Full name: {{ user.get_full_name }}</p>
     <p>Username: {{ user.username }}</p>

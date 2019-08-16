@@ -6,7 +6,7 @@
 {% for usr in profile_list %}
     <a href='{% url "profiles:detail" usr.user.id %}'>{{ usr.user |linebreaks}}</a>
     {% if usr.user.profile.avatar %}
-    <img src="{{ usr.user.profile.avatar.url }}" alt="my pics" width="240">
+    <img src="{{ MEDIA_URL }}{{ usr.user.profile.avatar }}" alt="my pics" height="80" width="80">
     {% endif %}
 
 {#    {{ usr.user |linebreaks}}#}
