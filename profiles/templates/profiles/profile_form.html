@@ -6,7 +6,7 @@
 
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
-  {{ form.as_p|cryspy }}
+  {{ form.as_p|crispy }}
   <button type="submit">Save changes</button>
 
 </form>

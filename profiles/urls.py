@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from .views import ProfileListView, ProfileDetailView
+from .api.view import ProfileListAPIView
 from . import views
 
 urlpatterns = [
@@ -11,6 +12,7 @@ urlpatterns = [
     url(r'^$', ProfileListView.as_view(), name='list'),
     #url(r'^detail/@(?P<username>[\w.@+-]+)/$', ProfileDetailView.as_view(), name='detail'),
     #url(r'', ProfileView.as_view(), name='profile_view'),
+    url(r'^api/$', ProfileListAPIView.as_view(), name='api-list'),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

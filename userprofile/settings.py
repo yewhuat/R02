@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'crispy_forms',
+    'rest_framework',
     # Internal App
     'profiles',
 ]
@@ -251,3 +252,11 @@ SITE_ID = 1
 #django-crispy-forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+#rest_framework
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
