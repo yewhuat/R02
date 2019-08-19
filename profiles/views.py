@@ -54,7 +54,7 @@ def update_profile(request):
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
         logger.info("Profile Successfully Loaded:{}".format(request.user))
-    return render(request, 'profiles/update.html', {
+    return render(request, 'profiles/profile_update.html', {
         'user_form': user_form,
         'profile_form': profile_form
     })
